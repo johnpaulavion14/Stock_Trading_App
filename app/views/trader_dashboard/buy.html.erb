@@ -1,0 +1,19 @@
+Buy
+
+<%= form_with model:@stocks, local: true do |f| %>
+
+  <%# <%= f.hidden_field :transaction_type, :value => 'Buy' %> %>
+
+  <p>
+    <%= f.label 'Name' %><br />
+    <%= f.text_field :name, :value => params[:name]%>
+  </p>
+
+
+ 
+    
+  <p>
+    <%= f.submit 'Buy' %>
+  </p>
+  
+<% end %>

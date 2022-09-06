@@ -3,7 +3,9 @@
 one:
   name: MyString
   symbol: MyString
+  shares: 1
 
 two:
   name: MyString
   symbol: MyString
+  shares: 1

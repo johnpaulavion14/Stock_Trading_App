@@ -12,6 +12,13 @@ Rails.application.routes.draw do
 
 
   get 'trader_dashboard/index'
+  get 'trader_dashboard/portfolio'
+  get 'trader_dashboard/buy'
+  get 'trader_dashboard/sell'
+
+
+
+
 
   devise_for :admins
   devise_for :users
