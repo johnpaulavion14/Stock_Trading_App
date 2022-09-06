@@ -72,3 +72,5 @@ group :test do
 end
 gem "devise"
 gem "pg"
+
+gem 'iex-ruby-client'

@@ -1,0 +1,10 @@
+<h1>All Traders</h1>
+
+<% @traders.each do |trader| %>
+<%= button_to trader.email %>
+<% end %>
+
+
+<%= button_to "go back", admin_dashboard_index_path, method: :get%>
+
+<%= button_to "Edit Info", edit_user_registration_path, method: :get%>

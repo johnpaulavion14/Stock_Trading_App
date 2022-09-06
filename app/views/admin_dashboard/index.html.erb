@@ -1,4 +1,20 @@
 <h1>AdminDashboard#index</h1>
 <p>Find me in app/views/admin_dashboard/index.html.erb</p>
 
+<%= button_to "Create New Trader", new_user_registration_path, method: :get%>
+
+
+<%= button_to "See All Traders", admin_dashboard_alltraders_path, method: :get%>
+
+<%= button_to "Pending Traders", admin_dashboard_pendingtraders_path, method: :get%>
+
+<%= button_to "All Transactions", admin_dashboard_alltransactions_path, method: :get%>
+
+
+
+
+
+
+
+
 <%= button_to "Log Out", destroy_admin_session_path, method: :delete %>

@@ -3,3 +3,12 @@
 
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
 
+
+<% @stocks.each do |stock| %>
+
+<%= button_to stock.name + ' - ' + 'price:'+stock.price.to_s %>
+
+<% end %>
+
+<%= button_to "go back", edit_user_registration_path, method: :get%>
+<%= button_to "Edit Info", edit_user_registration_path, method: :get%>
