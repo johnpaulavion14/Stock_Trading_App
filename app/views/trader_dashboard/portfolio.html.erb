@@ -1,2 +1,27 @@
 <%= render 'navbar' %>
 Portfolio
+
+</br>
+</br>
+
+<% @company_shares.each do |company|%>
+    <%if company[1] != 0%>
+            <%= company[0]%> </br>
+            <%= 'current_price:'%> </br>
+            <%= 'shares:' + company[1].to_s%> </br></br>
+            <%= link_to "Buy", buy_stock_path({company:company[0]}) %>
+    <%end%>
+
+
+<%end%>
+
+
+
+
+
+
+
+
+
+
+

@@ -9,8 +9,8 @@
 <%= stock.name %>
 <%= 100 %>
 
-<%# <%= @client.quote(stock.symbol).latest_price %> %>
-<%= button_to "Buy", trader_dashboard_buy_path({:name => stock.name, :symbol => stock.symbol, :price => 100}), method: :get%>
+<%= link_to "Buy", buy_stock_path({company:stock.name}) %>
+
 
 
 </br>

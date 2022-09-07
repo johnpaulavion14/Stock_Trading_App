@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
   get 'trader_dashboard/index'
   get 'trader_dashboard/portfolio'
-  get 'trader_dashboard/buy'
+  get 'trader_dashboard/buy' => 'trader_dashboard#buy', :as => 'buy_stock'
   get 'trader_dashboard/sell'
+  post 'trader_dashboard/create' => 'trader_dashboard#create', :as => 'create_transaction'
+
 
 
 

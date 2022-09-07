@@ -1,19 +1,30 @@
 Buy
 
-<%= form_with model:@stocks, local: true do |f| %>
+<%= form_with url: "/trader_dashboard/create" do |f| %>
 
-  <%# <%= f.hidden_field :transaction_type, :value => 'Buy' %> %>
+
+  <%= f.hidden_field :company, value: @stocks.name %>
+  <%= f.hidden_field :symbol, value: @stocks.symbol %>
+
+  <h1>
+    <%= @stocks.name + ' - ' + @stocks.symbol%><br />
+  </h1>
 
   <p>
-    <%= f.label 'Name' %><br />
-    <%= f.text_field :name, :value => params[:name]%>
+    <%= f.label 'Price' %>
+    <%= f.text_field :current_price, value: 100, readonly: true %>
   </p>
 
+   <p>
+    <%= f.label 'No. of Stocks'%></br>
+    <%= f.number_field :shares %>
+  </p>
+  
+  
 
- 
-    
   <p>
     <%= f.submit 'Buy' %>
   </p>
   
 <% end %>
+
