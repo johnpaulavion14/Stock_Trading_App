@@ -1,4 +1,4 @@
-Buy
+<%= params[:button] + ' ' + 'transaction' %>
 
 <%= form_with url: "/trader_dashboard/create" do |f| %>
 
@@ -15,15 +15,24 @@ Buy
     <%= f.text_field :current_price, value: 100, readonly: true %>
   </p>
 
-   <p>
-    <%= f.label 'No. of Stocks'%></br>
-    <%= f.number_field :shares %>
-  </p>
+  <% if params[:button] == 'buy'%>
+    <p>
+      <%= f.label 'No. of Stocks'%></br>
+      <%= f.number_field :shares , min: 1%>
+    </p>
+    <% else %>
+    <p>
+      <%= f.label 'No. of Stocks'%></br>
+      <%= f.number_field :shares, max: -1 %>
+    </p>
+
+  <%end%>
+  
   
   
 
   <p>
-    <%= f.submit 'Buy' %>
+    <%= f.submit params[:button] %>
   </p>
   
 <% end %>

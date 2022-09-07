@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
   get 'stocks/create'
   get 'stocks/delete'
   get 'stocks/show'
@@ -16,11 +17,6 @@ Rails.application.routes.draw do
   get 'trader_dashboard/buy' => 'trader_dashboard#buy', :as => 'buy_stock'
   get 'trader_dashboard/sell'
   post 'trader_dashboard/create' => 'trader_dashboard#create', :as => 'create_transaction'
-
-
-
-
-
 
   devise_for :admins
   devise_for :users

@@ -1,5 +1,4 @@
-<h1>All Trasactions</h1>
-
+<h1>All STransactions</h1>
 <table class="table">
   <thead>
     <tr>
@@ -8,7 +7,6 @@
       <th scope="col">Stocks#</th>
       <th scope="col">Last_price</th>
       <th scope="col">Action</th>
-      <th scope="col">Trader</th>
     </tr>
   </thead>
   <tbody>
@@ -19,13 +17,7 @@
       <td><%= transaction.shares%></td>
       <td><%= transaction.current_price%></td>
       <td><%= transaction.commit%></td>
-      <td><%= transaction.user.email%></td>
-
-      
-
     </tr>
   <%end%>
   </tbody>
 </table>
-
-<%= button_to "go back", admin_dashboard_index_path, method: :get%>

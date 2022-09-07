@@ -11,5 +11,6 @@ class AdminDashboardController < ApplicationController
   end
 
   def alltransactions
+    @all_transactions = Transaction.all
   end
 end

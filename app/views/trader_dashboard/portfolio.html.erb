@@ -8,8 +8,10 @@ Portfolio
     <%if company[1] != 0%>
             <%= company[0]%> </br>
             <%= 'current_price:'%> </br>
-            <%= 'shares:' + company[1].to_s%> </br></br>
-            <%= link_to "Buy", buy_stock_path({company:company[0]}) %>
+            <%= 'shares:' + company[1].to_s%> </br>
+            <%= link_to "Buy", buy_stock_path({company:company[0], button:'buy'}) %></br>
+            <%= link_to "Sell", buy_stock_path({company:company[0], button:'sell'}) %></br></br>
+
     <%end%>
 
 

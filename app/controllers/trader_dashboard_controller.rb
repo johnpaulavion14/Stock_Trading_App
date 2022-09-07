@@ -25,7 +25,7 @@ class TraderDashboardController < ApplicationController
   end
 
   def sell
-    
+    @stocks = Stock.find_by(name:params[:company])
   end
 
   def create
