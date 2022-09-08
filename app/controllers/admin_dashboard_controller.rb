@@ -32,7 +32,17 @@ class AdminDashboardController < ApplicationController
   end
   
   def view_portfolio
-    @view_profile = User.find_by(email:params[:email])
+    @user = User.find_by(email:params[:email])
+    @transactions = @user.transactions
+    @companies = Stock.all.pluck(:name)
+    @company_shares = []
+
+    @companies.each do |company|
+      shares = @transactions.where(company:company).pluck(:shares)
+      total_shares = shares.reduce(0){|sum,num|sum + num}
+      details = [company,total_shares]
+      @company_shares.append(details)
+    end
 
   end
 

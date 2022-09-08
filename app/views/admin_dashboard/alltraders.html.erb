@@ -23,7 +23,7 @@
       <td><%= trader.first_name%></td>
       <td><%= trader.email%></td>
       <td><%= link_to 'view Profile', view_profile_path({email:trader.email})%></td>
-      <td><%= button_to 'view Portfolio',  view_portfolio_path, method: :get%></td>
+      <td><%= link_to 'view Portfolio',  view_portfolio_path({email:trader.email})%></td>
     </tr>
   <%end%>
   </tbody>
