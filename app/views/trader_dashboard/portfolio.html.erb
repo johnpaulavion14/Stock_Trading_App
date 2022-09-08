@@ -9,8 +9,8 @@ Portfolio
             <%= company[0]%> </br>
             <%= 'current_price:'%> </br>
             <%= 'shares:' + company[1].to_s%> </br>
-            <%= link_to "Buy", buy_stock_path({company:company[0], button:'buy'}) %></br>
-            <%= link_to "Sell", buy_stock_path({company:company[0], button:'sell'}) %></br></br>
+            <%= link_to "Buy", transaction_type_path({company:company[0], button:'buy'}) %></br>
+            <%= link_to "Sell", transaction_type_path({company:company[0], button:'sell'}) %></br></br>
 
     <%end%>
 

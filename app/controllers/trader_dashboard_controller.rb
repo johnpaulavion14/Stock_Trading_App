@@ -20,37 +20,24 @@ class TraderDashboardController < ApplicationController
     end
   end
 
-  def buy
-    @stocks = Stock.find_by(name:params[:company])
-  end
-
-  def sell
+  def transaction_type
     @stocks = Stock.find_by(name:params[:company])
   end
 
   def create
-    # @company = Transaction.find_by(company:params[:company])
     @transaction = current_user.transactions.create(transaction_params)
     if @transaction.save!
-      redirect_to trader_dashboard_index_path
+      redirect_to trader_dashboard_portfolio_path
     else
       render :buy
     end
-    # if @company.status == "owned"
-    #   redirect_to trader_dashboard_index_path
-    # else
-      
-    # end
   end
 
-  def update
-    @transaction = Transaction.create(transaction_params)
-    if @transaction.save!
-      redirect_to trader_dashboard_index_path
-    else
-      render :buy
-    end
+  def all_transactions
+    @all_transactions = current_user.transactions
   end
+
+  
 
   private
 

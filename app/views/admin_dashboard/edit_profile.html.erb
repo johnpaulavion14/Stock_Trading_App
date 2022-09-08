@@ -1,0 +1,40 @@
+Edit profile
+
+<%= form_with url: "/admin_dashboard/update",method: :patch, local: true do |f| %>
+
+  <%# <%= f.hidden_field :company, value: @stocks.name %> %>
+  
+  <p>
+    <%= f.label 'First Name:' %>
+    <%= f.text_field :first_name, value: @profile.first_name %>
+  </p>
+
+  <p>
+    <%= f.label 'Last Name:' %>
+    <%= f.text_field :last_name, value: @profile.last_name %>
+  </p>
+
+  <p>
+    <%= f.label 'Gender:' %>
+    <%= f.text_field :gender, value: @profile.gender %>
+  </p>
+
+  <p>
+    <%= f.label 'Age:' %>
+    <%= f.number_field :age, value: @profile.age %>
+  </p>
+
+  <p>
+    <%= f.label 'Address:' %>
+    <%= f.text_field :address, value: @profile.address %>
+  </p>
+
+  <p>
+    <%= f.label 'Email:' %>
+    <%= f.text_field :email, value: @profile.email %>
+  </p>
+
+  <%= f.submit%>
+
+
+  <%end%>

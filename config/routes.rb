@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'transactions/index'
   get 'stocks/create'
   get 'stocks/delete'
   get 'stocks/show'
@@ -9,17 +8,27 @@ Rails.application.routes.draw do
   get 'admin_dashboard/alltraders'
   get 'admin_dashboard/pendingtraders'
   get 'admin_dashboard/alltransactions'
+  get 'admin_dashboard/view_profile' , :as => 'view_profile'
+  get 'admin_dashboard/view_portfolio' , :as => 'view_portfolio'
+  get 'admin_dashboard/edit_profile' , :as => 'edit_profile'
+  patch 'admin_dashboard/update' => 'admin_dashboard#update'
+
+
+
+
 
 
 
   get 'trader_dashboard/index'
   get 'trader_dashboard/portfolio'
-  get 'trader_dashboard/buy' => 'trader_dashboard#buy', :as => 'buy_stock'
-  get 'trader_dashboard/sell'
+  get 'trader_dashboard/transaction_type' , :as => 'transaction_type'
+  get 'trader_dashboard/all_transactions', :as => 'trader_alltransactions'
   post 'trader_dashboard/create' => 'trader_dashboard#create', :as => 'create_transaction'
 
   devise_for :admins
-  devise_for :users
   root 'home#index'
+
+  devise_for :users, :controllers => { registrations: 'registrations/registrations' }
+
 
 end

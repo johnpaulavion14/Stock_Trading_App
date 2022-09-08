@@ -1,0 +1,10 @@
+profile
+
+<%= 'First Name: ' + @view_profile.first_name%></br>
+<%= 'Last Name: ' + @view_profile.last_name%></br>
+<%= 'Gender: ' + @view_profile.gender%></br>
+<%= 'Age: ' + @view_profile.age.to_s%></br>
+<%= 'Address: ' + @view_profile.address%></br>
+<%= 'Email: ' + @view_profile.email%></br>
+
+<%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email})%>
