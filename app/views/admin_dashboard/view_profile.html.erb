@@ -8,3 +8,6 @@ profile
 <%= 'Email: ' + @view_profile.email%></br>
 
 <%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email})%>
+
+<%= link_to 'Delete User', delete_user_path({email:@view_profile.email})%>
+

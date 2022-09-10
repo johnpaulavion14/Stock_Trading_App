@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'admin_dashboard/view_portfolio' , :as => 'view_portfolio'
   get 'admin_dashboard/edit_profile' , :as => 'edit_profile'
   get 'admin_dashboard/approved' , :as => 'approved'
+  get 'admin_dashboard/delete_user' , :as => 'delete_user'
+
 
   patch 'admin_dashboard/update' => 'admin_dashboard#update'
 
