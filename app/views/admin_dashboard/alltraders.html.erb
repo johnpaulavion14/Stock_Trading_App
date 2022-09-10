@@ -14,6 +14,7 @@
       <th scope="col">Email</th>
       <th scope="col">Profile</th>
       <th scope="col">Portfolio</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,11 @@
       <td><%= trader.email%></td>
       <td><%= link_to 'view Profile', view_profile_path({email:trader.email})%></td>
       <td><%= link_to 'view Portfolio',  view_portfolio_path({email:trader.email})%></td>
+      
+      <% if trader.is_approved == false %>
+        <td><%=link_to 'approve',approved_path({email:trader.email}) %></td>
+      <%end%>
+      
     </tr>
   <%end%>
   </tbody>

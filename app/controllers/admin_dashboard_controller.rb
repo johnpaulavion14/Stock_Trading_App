@@ -46,6 +46,13 @@ class AdminDashboardController < ApplicationController
 
   end
 
+  def approved
+    @user = User.find_by(email:params[:email])
+    if @user.update(is_approved:true)
+      UserMailer.with(user: @user).welcome_email.deliver_now
+    end
+  end
+
 
   private
 

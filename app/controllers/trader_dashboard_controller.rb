@@ -1,5 +1,7 @@
 class TraderDashboardController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_approved
+  
   def index
     @stocks = Stock.all
     @client = IEX::Api::Client.new
@@ -39,10 +41,20 @@ class TraderDashboardController < ApplicationController
 
   
 
+  
+
   private
 
   def transaction_params
     params.permit(:symbol,:current_price,:shares,:company,:commit,:status)
+  end
+
+  def is_approved
+    if current_user.is_approved == false
+      sign_out current_user 
+      redirect_to '/'
+
+    end
   end
   
 
