@@ -2,12 +2,11 @@
 <h1>Top 10 Companies</h1>
 
 
-
 <% @stocks.each do |stock| %>
 
 <%= stock.symbol %>
 <%= stock.name %>
-<%= 100 %>
+<%= stock.price %>
 
 <%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}) %>
 

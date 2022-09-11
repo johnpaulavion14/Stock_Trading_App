@@ -4,20 +4,39 @@ class TraderDashboardController < ApplicationController
   
   def index
     @stocks = Stock.all
-    @client = IEX::Api::Client.new
+    # @client = IEX::Api::Client.new
+
+
+    # @prices = []
+    # @stocks.each do |stock|
+    #   @prices.append(@client.quote(stock.symbol).latest_price)
+
+    # end
+    
     
 
   end
 
   def portfolio
-    @transactions = current_user.transactions
-    @companies = Stock.all.pluck(:name)
+    transactions = current_user.transactions
+    active_company = transactions.pluck(:company).uniq
+
+
+    
     @company_shares = []
 
-    @companies.each do |company|
-      shares = @transactions.where(company:company).pluck(:shares)
+    active_company.each do |company|
+      # shares = @transactions.where(company:company.name).pluck(:shares)
+      current_price = Stock.all.find_by(name:company).price
+
+      shares = transactions.where(company:company).pluck(:shares)
+
+      # shares = @transactions.pluck(:shares)
+
+      last_price = transactions.where(company:company).last.current_price
+
       total_shares = shares.reduce(0){|sum,num|sum + num}
-      details = [company,total_shares]
+      details = {name:company, shares:total_shares, current_price:current_price, last_price:last_price}
       @company_shares.append(details)
     end
   end
@@ -31,7 +50,7 @@ class TraderDashboardController < ApplicationController
     if @transaction.save!
       redirect_to trader_dashboard_portfolio_path
     else
-      render :buy
+      render :transaction_type
     end
   end
 

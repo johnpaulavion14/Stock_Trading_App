@@ -6,52 +6,26 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-stock1 = Stock.new 
-stock1.name = "Advanced Micro Devices"
-stock1.symbol = "AMD"
-stock1.save!
+@client = IEX::Api::Client.new
+# @client.quote('AMD').latest_price
 
-stock2 = Stock.new 
-stock2.name = "NVIDIA Corporation"
-stock2.symbol = "NVDA"
-stock2.save!
+Stock.create(name:"Advanced Micro Devices", symbol:'AMD', price:@client.quote('AMD').latest_price)
 
-stock3 = Stock.new 
-stock3.name = "GameStop Corp."
-stock3.symbol = "GME"
-stock3.save!
+Stock.create(name:"NVIDIA Corporation", symbol:"NVDA", price:@client.quote('NVDA').latest_price)
 
-stock4 = Stock.new 
-stock4.name = "Apple Inc."
-stock4.symbol = "AAPL"
-stock4.save!
+Stock.create(name:"GameStop Corp.", symbol:"GME", price:@client.quote('GME').latest_price)
 
-stock5 = Stock.new 
-stock5.name = "Alphabet, Inc."
-stock5.symbol = "GOOG"
-stock5.save!
+Stock.create(name:"Apple Inc.", symbol:"AAPL", price:@client.quote('AAPL').latest_price)
 
-stock6 = Stock.new 
-stock6.name = "Microsoft Corporation"
-stock6.symbol = "MSFT"
-stock6.save!
+Stock.create(name:"Alphabet, Inc.", symbol:"GOOG", price:@client.quote('GOOG').latest_price)
 
-stock7= Stock.new 
-stock7.name = "Twitter, Inc."
-stock7.symbol = "TWTR"
-stock7.save!
+Stock.create(name:"Microsoft Corporation", symbol:"MSFT", price:@client.quote('MSFT').latest_price)
 
-stock8 = Stock.new 
-stock8.name = "Meta Platforms, Inc."
-stock8.symbol = "META"
-stock8.save!
+Stock.create(name:"Twitter, Inc.", symbol:"TWTR", price:@client.quote('TWTR').latest_price)
 
-stock9 = Stock.new 
-stock9.name = "Amazon.com Inc."
-stock9.symbol = "AMZN"
-stock9.save!
+Stock.create(name:"Meta Platforms, Inc.", symbol:"META", price:@client.quote('META').latest_price)
 
-stock10 = Stock.new 
-stock10.name = "Bed Bath & Beyond Inc."
-stock10.symbol = "BBBY"
-stock10.save!
+Stock.create(name:"Amazon.com Inc.", symbol:"AMZN", price:@client.quote('AMZN').latest_price)
+
+Stock.create(name:"Bed Bath & Beyond Inc.", symbol:"BBBY", price:@client.quote('BBBY').latest_price)
+
