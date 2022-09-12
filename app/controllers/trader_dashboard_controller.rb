@@ -4,7 +4,7 @@ class TraderDashboardController < ApplicationController
   
   def index
     @stocks = Stock.all
-    # @client = IEX::Api::Client.new
+    @client = IEX::Api::Client.new
 
 
     # @prices = []
@@ -56,6 +56,12 @@ class TraderDashboardController < ApplicationController
 
   def all_transactions
     @all_transactions = current_user.transactions
+  end
+
+  def delete_stocks
+    if Stock.destroy_all
+      redirect_to trader_dashboard_index_path
+    end
   end
 
   

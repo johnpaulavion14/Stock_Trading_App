@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_10_022256) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_030413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,12 +31,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_022256) do
     t.string "symbol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
+    t.float "price"
+    t.string "percent_change"
   end
 
   create_table "transactions", force: :cascade do |t|
     t.string "symbol"
-    t.integer "current_price"
     t.integer "shares"
     t.date "date"
     t.time "time"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_022256) do
     t.string "company"
     t.string "commit"
     t.integer "user_id"
+    t.float "current_price"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

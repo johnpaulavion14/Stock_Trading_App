@@ -7,25 +7,26 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 @client = IEX::Api::Client.new
-# @client.quote('AMD').latest_price
 
-Stock.create(name:"Advanced Micro Devices", symbol:'AMD', price:@client.quote('AMD').latest_price)
 
-Stock.create(name:"NVIDIA Corporation", symbol:"NVDA", price:@client.quote('NVDA').latest_price)
 
-Stock.create(name:"GameStop Corp.", symbol:"GME", price:@client.quote('GME').latest_price)
+Stock.create(name:"Advanced Micro Devices", symbol:'AMD', price:sprintf('%.2f',@client.quote('AMD').latest_price), percent_change:@client.quote('AMD').change_percent_s.to_s)
 
-Stock.create(name:"Apple Inc.", symbol:"AAPL", price:@client.quote('AAPL').latest_price)
+Stock.create(name:"NVIDIA Corporation", symbol:"NVDA", price:sprintf('%.2f',@client.quote('NVDA').latest_price), percent_change:@client.quote('NVDA').change_percent_s.to_s)
 
-Stock.create(name:"Alphabet, Inc.", symbol:"GOOG", price:@client.quote('GOOG').latest_price)
+Stock.create(name:"GameStop Corp.", symbol:"GME", price:sprintf('%.2f',@client.quote('GME').latest_price), percent_change:@client.quote('GME').change_percent_s.to_s)
 
-Stock.create(name:"Microsoft Corporation", symbol:"MSFT", price:@client.quote('MSFT').latest_price)
+Stock.create(name:"Apple Inc.", symbol:"AAPL", price:sprintf('%.2f',@client.quote('AAPL').latest_price), percent_change:@client.quote('AAPL').change_percent_s.to_s)
 
-Stock.create(name:"Twitter, Inc.", symbol:"TWTR", price:@client.quote('TWTR').latest_price)
+Stock.create(name:"Alphabet, Inc.", symbol:"GOOG", price:sprintf('%.2f',@client.quote('GOOG').latest_price), percent_change:@client.quote('GOOG').change_percent_s.to_s)
 
-Stock.create(name:"Meta Platforms, Inc.", symbol:"META", price:@client.quote('META').latest_price)
+Stock.create(name:"Microsoft Corporation", symbol:"MSFT", price:sprintf('%.2f',@client.quote('MSFT').latest_price), percent_change:@client.quote('MSFT').change_percent_s.to_s)
 
-Stock.create(name:"Amazon.com Inc.", symbol:"AMZN", price:@client.quote('AMZN').latest_price)
+Stock.create(name:"Twitter, Inc.", symbol:"TWTR", price:sprintf('%.2f',@client.quote('TWTR').latest_price), percent_change:@client.quote('TWTR').change_percent_s.to_s)
 
-Stock.create(name:"Bed Bath & Beyond Inc.", symbol:"BBBY", price:@client.quote('BBBY').latest_price)
+Stock.create(name:"Meta Platforms, Inc.", symbol:"META", price:sprintf('%.2f',@client.quote('META').latest_price), percent_change:@client.quote('META').change_percent_s.to_s)
+
+Stock.create(name:"Amazon.com Inc.", symbol:"AMZN", price:sprintf('%.2f',@client.quote('AMZN').latest_price), percent_change:@client.quote('AMZN').change_percent_s.to_s)
+
+Stock.create(name:"Bed Bath & Beyond Inc.", symbol:"BBBY", price:sprintf('%.2f',@client.quote('BBBY').latest_price), percent_change:@client.quote('BBBY').change_percent_s.to_s)
 
