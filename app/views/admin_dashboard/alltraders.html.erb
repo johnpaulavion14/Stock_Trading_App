@@ -4,7 +4,7 @@
 </br>
 
 
-<%= button_to "Create New Trader", new_user_registration_path, method: :get%>
+<%= link_to "Create New Trader", new_user_registration_path, method: :get%>
 
 <table class="table">
   <thead>
@@ -28,6 +28,8 @@
       
       <% if trader.is_approved == false %>
         <td><%=link_to 'approve',approved_path({email:trader.email}) %></td>
+      <%else%>
+        <td><%= 'approved' %></td>
       <%end%>
       
     </tr>

@@ -21,8 +21,6 @@ class TraderDashboardController < ApplicationController
     transactions = current_user.transactions
     active_company = transactions.pluck(:company).uniq
 
-
-    
     @company_shares = []
 
     active_company.each do |company|
@@ -78,7 +76,6 @@ class TraderDashboardController < ApplicationController
     if current_user.is_approved == false
       sign_out current_user 
       redirect_to '/'
-
     end
   end
   
