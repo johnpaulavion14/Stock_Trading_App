@@ -27,7 +27,7 @@ class AdminDashboardController < ApplicationController
     @user = User.find_by(email:params[:email])
 
     if @user.update!(user_params)
-      redirect_to view_profile_path
+      redirect_to view_profile_path({email:params[:email]})
     end
   end
   
@@ -70,11 +70,25 @@ class AdminDashboardController < ApplicationController
       redirect_to admin_dashboard_alltraders_path
     end
   end
+  
+  def new_trader
+  end
+
+  def create_trader
+    if User.create!(trader_params)
+    redirect_to admin_dashboard_alltraders_path
+    end
+
+  end
 
 
   private
 
   def user_params
     params.permit(:first_name,:last_name,:gender,:age,:address,:email)
+  end
+
+  def trader_params
+    params.permit(:first_name,:last_name,:gender,:age,:address,:email,:password)
   end
 end

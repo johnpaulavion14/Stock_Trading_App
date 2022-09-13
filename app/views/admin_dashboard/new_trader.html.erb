@@ -1,7 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with url: "/admin_dashboard/create_trader", method: :post, local: true do |f| %>
 
   <div class="field">
     <%= f.label 'First Name' %><br />
@@ -49,8 +48,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign Up" %>
+    <%= f.submit "proceed" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

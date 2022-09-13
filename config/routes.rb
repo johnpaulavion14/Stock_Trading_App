@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'admin_dashboard/edit_profile' , :as => 'edit_profile'
   get 'admin_dashboard/approved' , :as => 'approved'
   get 'admin_dashboard/delete_user' , :as => 'delete_user'
+  post 'admin_dashboard/create_trader' , :as => 'create_trader'
+  get 'admin_dashboard/new_trader' , :as => 'new_trader'
+
 
 
   patch 'admin_dashboard/update' => 'admin_dashboard#update'
