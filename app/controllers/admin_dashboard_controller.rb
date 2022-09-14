@@ -36,24 +36,28 @@ class AdminDashboardController < ApplicationController
     transactions = @user.transactions
     active_company = transactions.pluck(:company).uniq
 
-    @company_shares = []
+    @company_details = []
 
     active_company.each do |company|
-      # shares = @transactions.where(company:company.name).pluck(:shares)
+
       current_price = Stock.all.find_by(name:company).price
 
-      shares = transactions.where(company:company).pluck(:shares)
-
-      # shares = @transactions.pluck(:shares)
+      action_and_shares = transactions.where(company:company).pluck(:commit, :shares)
+      shares_array = []
+      action_and_shares.each do |array|
+        if array[0] == 'buy'
+          shares_array.append(array[1])
+        else
+          shares_array.append(-array[1])
+        end
+      end
 
       last_price = transactions.where(company:company).last.current_price
 
-      total_shares = shares.reduce(0){|sum,num|sum + num}
+      total_shares = shares_array.reduce(0){|sum,num|sum + num}
       details = {name:company, shares:total_shares, current_price:current_price, last_price:last_price}
-      @company_shares.append(details)
+      @company_details.append(details)
     end
-   
-
   end
 
   def delete_user

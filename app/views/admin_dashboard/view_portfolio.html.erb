@@ -3,14 +3,13 @@ Portfolio
 </br>
 </br>
 
-<% @company_shares.each do |company|%>
+<% @company_details.each do |company|%>
     <%if company[:shares] != 0%>
             <%= company[:name]%> </br>
             <%= 'last_price:' + company[:last_price].to_s %> </br>
             <%= 'current_price:' + company[:current_price].to_s %> </br>
             <%= 'shares:' + company[:shares].to_s%> </br></br>
 
-               <%end%>
-
+    <%end%>
 
 <%end%>

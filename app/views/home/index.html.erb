@@ -1,14 +1,34 @@
-<h1>Home#index</h1>
+<div class="container text-center mt-5 text-bg-primary" style="padding: 3rem;">
+<h1>Stocks-infini-Trade</h1>
+  <div class="row mt-5">
+    <div class="col">
+    
+    </div>
+    <div class="col">
+        <h1>Trader</h1>
+        <%= button_to "Log In", trader_dashboard_index_path, method: :get%>
+        <%= button_to "Register", new_user_registration_path, method: :get%>
+    </div>
+    <div class="col">
+        <h1>Admin</h1>
+        <%= button_to "Log In", admin_dashboard_index_path, method: :get%>
+        <%= button_to "Register", new_admin_registration_path, method: :get%>
+    </div>
+    <div class="col">
+    
+    </div>
+  </div>
+</div>
 
 
 
 
-<h1>Trader</h1>
-<%= button_to "Log In", trader_dashboard_index_path, method: :get%>
-<%= button_to "Register", new_user_registration_path, method: :get%>
 
-<h1>Admin</h1>
-<%= button_to "Log In", admin_dashboard_index_path, method: :get%>
-<%= button_to "Register", new_admin_registration_path, method: :get%>
+
+
+
+
+
+
 
 

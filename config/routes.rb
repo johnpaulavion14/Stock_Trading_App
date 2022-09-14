@@ -11,16 +11,7 @@ Rails.application.routes.draw do
   get 'admin_dashboard/delete_user' , :as => 'delete_user'
   post 'admin_dashboard/create_trader' , :as => 'create_trader'
   get 'admin_dashboard/new_trader' , :as => 'new_trader'
-
-
-
   patch 'admin_dashboard/update' => 'admin_dashboard#update'
-
-
-
-
-
-
 
   get 'trader_dashboard/index'
   get 'trader_dashboard/portfolio'
@@ -29,11 +20,14 @@ Rails.application.routes.draw do
   post 'trader_dashboard/create' => 'trader_dashboard#create', :as => 'create_transaction'
   delete 'trader_dashboard/delete_stocks' , :as => 'delete_stocks'
 
-  devise_for :admins
-  root 'home#index'
-  
+  # devise_for :admins
+  # devise_for :users
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: 'users/registrations'  }
+  devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: 'admins/registrations'  }
 
-  devise_for :users, :controllers => { registrations: 'registrations/registrations' }
+  root 'home#index'
+
+  # devise_for :users, :controllers => { users: 'registrations/registrations' }
 
 
 end

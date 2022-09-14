@@ -3,15 +3,16 @@ Portfolio
 
 </br>
 </br>
+<%= @shares_array %>
 
-<% @company_shares.each do |company|%>
+<% @company_details.each do |company|%>
     <%if company[:shares] != 0%>
             <%= company[:name]%> </br>
             <%= 'last_price:' + company[:last_price].to_s %> </br>
             <%= 'current_price:' + company[:current_price].to_s %> </br>
             <%= 'shares:' + company[:shares].to_s%> </br>
-            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy' }) %></br>
-            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell' }) %></br></br>
+            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}) %></br>
+            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}) %></br></br>
 
     <%end%>
 

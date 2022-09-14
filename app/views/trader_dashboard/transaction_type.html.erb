@@ -7,14 +7,19 @@
 
   <%= f.hidden_field :company, value: @stocks.name %>
   <%= f.hidden_field :symbol, value: @stocks.symbol %>
+  <%= f.hidden_field :current_price, value: @stocks.price %>
+
+
 
   <h1>
     <%= @stocks.name + ' - ' + @stocks.symbol%><br />
   </h1>
-
+  
   <p>
-    <%= f.label 'Price' %>
-    <%= f.text_field :current_price, value: @stocks.price, readonly: true %>
+    <%= 'Price: ' + @stocks.price.to_s%><br />
+  </p>
+  <p>
+    <%= 'Shares: ' + params[:shares].to_s%><br />
   </p>
 
   <% if params[:button] == 'buy'%>
@@ -25,7 +30,7 @@
     <% else %>
     <p>
       <%= f.label 'No. of Stocks'%></br>
-      <%= f.number_field :shares, max: -1 %>
+      <%= f.number_field :shares, min: 1, max: @max%>
     </p>
 
   <%end%>
