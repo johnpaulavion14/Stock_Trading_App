@@ -1,13 +1,18 @@
-profile
+<%= render 'admin_navbar'%>
 
-<%= 'First Name: ' + @view_profile.first_name%></br>
-<%= 'Last Name: ' + @view_profile.last_name%></br>
-<%= 'Gender: ' + @view_profile.gender%></br>
-<%= 'Age: ' + @view_profile.age.to_s%></br>
-<%= 'Address: ' + @view_profile.address%></br>
-<%= 'Email: ' + @view_profile.email%></br>
+<h2>View Profile</h2></br>
 
-<%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email})%>
+<%= 'First Name: ' + @view_profile.first_name%></br></br>
+<%= 'Last Name: ' + @view_profile.last_name%></br></br>
+<%= 'Gender: ' + @view_profile.gender%></br></br>
+<%= 'Age: ' + @view_profile.age.to_s%></br></br>
+<%= 'Address: ' + @view_profile.address%></br></br>
+<%= 'Email: ' + @view_profile.email%></br></br>
 
-<%= link_to 'Delete User', delete_user_path({email:@view_profile.email})%>
+<button><%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
+
+<button><%= link_to 'Delete User', delete_user_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
+</br></br>
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+
 

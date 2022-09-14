@@ -1,9 +1,10 @@
-Edit profile
+<%= render 'admin_navbar'%>
+
+<h2>Edit Profile</h2>
+</br>
 
 <%= form_with url: "/admin_dashboard/update",method: :patch, local: true do |f| %>
 
-  <%# <%= f.hidden_field :company, value: @stocks.name %> %>
-  
   <p>
     <%= f.label 'First Name:' %>
     <%= f.text_field :first_name, value: @profile.first_name %>
@@ -38,3 +39,7 @@ Edit profile
 
 
   <%end%>
+  </br>
+  <button><%= link_to 'go back', view_profile_path({email:params[:email]}), style:"text-decoration:none; color:black"%></button>
+
+  

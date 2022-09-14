@@ -1,17 +1,16 @@
 <%= render 'navbar' %>
 </br>
-</br>
 
 <div class="d-flex w-100 flex-wrap">
   <% @company_details.each do |company|%>
     <div class="w-25" style="height:150px">
       <%if company[:shares] != 0%>
         <b><%= company[:name]%> </br></b>
-        <%= 'last_price:' + company[:last_price].to_s %> </br>
-        <%= 'current_price:' + company[:current_price].to_s %> </br>
-        <%= 'shares:' + company[:shares].to_s%> </br>
-        <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}) %> --
-        <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}) %>
+        <%= 'last_price:  ' + company[:last_price].to_s %> </br>
+        <%= 'current_price:  ' + company[:current_price].to_s %> </br>
+        <span class="text-primary"><%= 'shares:  ' + company[:shares].to_s%></span> </br>
+        <button><%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}), style:"text-decoration:none; color:black;" %></button>
+        <button><%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}), style:"text-decoration:none; color:black;" %></button>
       <%end%>
     </div>
   <% end %>

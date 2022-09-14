@@ -5,16 +5,6 @@ class TraderDashboardController < ApplicationController
   def index
     @stocks = Stock.all
     @client = IEX::Api::Client.new
-
-
-    # @prices = []
-    # @stocks.each do |stock|
-    #   @prices.append(@client.quote(stock.symbol).latest_price)
-
-    # end
-    
-    
-
   end
 
   def portfolio
@@ -64,14 +54,30 @@ class TraderDashboardController < ApplicationController
   end
 
   def delete_stocks
-    if Stock.destroy_all
+    Stock.destroy_all
+      Stock.create(name:"Advanced Micro Devices", symbol:'AMD', price:sprintf('%.2f',@client.quote('AMD').latest_price), percent_change:@client.quote('AMD').change_percent_s.to_s)
+
+      Stock.create(name:"NVIDIA Corporation", symbol:"NVDA", price:sprintf('%.2f',@client.quote('NVDA').latest_price), percent_change:@client.quote('NVDA').change_percent_s.to_s)
+
+      Stock.create(name:"GameStop Corp.", symbol:"GME", price:sprintf('%.2f',@client.quote('GME').latest_price), percent_change:@client.quote('GME').change_percent_s.to_s)
+
+      Stock.create(name:"Apple Inc.", symbol:"AAPL", price:sprintf('%.2f',@client.quote('AAPL').latest_price), percent_change:@client.quote('AAPL').change_percent_s.to_s)
+
+      Stock.create(name:"Alphabet, Inc.", symbol:"GOOG", price:sprintf('%.2f',@client.quote('GOOG').latest_price), percent_change:@client.quote('GOOG').change_percent_s.to_s)
+
+      Stock.create(name:"Microsoft Corporation", symbol:"MSFT", price:sprintf('%.2f',@client.quote('MSFT').latest_price), percent_change:@client.quote('MSFT').change_percent_s.to_s)
+
+      Stock.create(name:"Twitter, Inc.", symbol:"TWTR", price:sprintf('%.2f',@client.quote('TWTR').latest_price), percent_change:@client.quote('TWTR').change_percent_s.to_s)
+
+      Stock.create(name:"Meta Platforms, Inc.", symbol:"META", price:sprintf('%.2f',@client.quote('META').latest_price), percent_change:@client.quote('META').change_percent_s.to_s)
+
+      Stock.create(name:"Amazon.com Inc.", symbol:"AMZN", price:sprintf('%.2f',@client.quote('AMZN').latest_price), percent_change:@client.quote('AMZN').change_percent_s.to_s)
+
+      Stock.create(name:"Bed Bath & Beyond Inc.", symbol:"BBBY", price:sprintf('%.2f',@client.quote('BBBY').latest_price), percent_change:@client.quote('BBBY').change_percent_s.to_s)
+
       redirect_to trader_dashboard_index_path
-    end
+    
   end
-
-  
-
-  
 
   private
 
@@ -86,7 +92,5 @@ class TraderDashboardController < ApplicationController
       redirect_to '/'
     end
   end
-  
-
 
 end

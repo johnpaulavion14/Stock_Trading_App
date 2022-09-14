@@ -1,5 +1,5 @@
 <%= render 'navbar' %>
-</br></br>
+</br>
 <table class="table">
   <thead>
     <tr>
@@ -12,13 +12,23 @@
   </thead>
   <tbody>
   <% @all_transactions.each do |transaction|%>
-    <tr>
-      <td><%= transaction.created_at%></td>
-      <td><%= transaction.company + '-' + transaction.symbol%> </td>
-      <td><%= transaction.shares%></td>
-      <td><%= transaction.current_price%></td>
-      <td><%= transaction.commit%></td>
-    </tr>
-  <%end%>
+      <%if transaction.commit == 'buy'%>
+        <tr class="bg-warning text-dark">
+          <td><%= transaction.created_at%></td>
+          <td><%= transaction.company + '-' + transaction.symbol%> </td>
+          <td><%= transaction.shares%></td>
+          <td><%= transaction.current_price%></td>
+          <td><%= transaction.commit%></td>
+        </tr>
+      <%else%>
+        <tr class="bg-info text-dark">
+          <td><%= transaction.created_at%></td>
+          <td><%= transaction.company + '-' + transaction.symbol%> </td>
+          <td><%= transaction.shares%></td>
+          <td><%= transaction.current_price%></td>
+          <td><%= transaction.commit%></td>
+        </tr>
+      <%end%>
+    <%end%>
   </tbody>
 </table>

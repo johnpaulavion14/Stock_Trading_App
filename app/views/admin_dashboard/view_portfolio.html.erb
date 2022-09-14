@@ -1,15 +1,19 @@
-Portfolio
+<%= render 'admin_navbar'%>
 
-</br>
-</br>
-
-<% @company_details.each do |company|%>
-    <%if company[:shares] != 0%>
-            <%= company[:name]%> </br>
+<h2>Portfolio</h2>
+<%= 'email: ' + params[:email]%>
+</br></br>
+<div class="d-flex w-100 flex-wrap">
+  <% @company_details.each do |company|%>
+    <div class="w-25" style="height:150px">
+      <%if company[:shares] != 0%>
+            <b><%= company[:name]%></b> </br>
             <%= 'last_price:' + company[:last_price].to_s %> </br>
             <%= 'current_price:' + company[:current_price].to_s %> </br>
-            <%= 'shares:' + company[:shares].to_s%> </br></br>
+            <span class="text-primary"><%= 'shares:' + company[:shares].to_s%></span></br></br>
+      <%end%>
+    </div>
+  <% end %>
+</div>
 
-    <%end%>
-
-<%end%>
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>

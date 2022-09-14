@@ -6,9 +6,16 @@
 <div class="d-flex w-100 flex-wrap">
   <% @stocks.each do |stock| %>
     <div class="w-25" style="height:100px">
-        <%= stock.symbol %> - <%= stock.name %></br>
-        <%= stock.price%>  (<%= stock.percent_change%>)</br>
-        <%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}) %>
+        <b><%= stock.symbol %> - <%= stock.name %></b></br>
+        
+        <span><%= stock.price%></span> 
+        <%if stock.percent_change.to_f < 0%>
+          <span class="text-danger">(<%= stock.percent_change%>)</span></br>
+        <%else%>
+          <span class="text-success">(<%= stock.percent_change%>)</span></br>
+        <%end%>
+
+        <button><%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}), style:"text-decoration:none; color:black;"%></button>
     </div>
   <% end %>
 </div>

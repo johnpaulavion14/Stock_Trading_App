@@ -1,3 +1,5 @@
+<%= render 'admin_navbar'%>
+
 <h2>Sign up</h2>
 
 <%= form_with url: "/admin_dashboard/create_trader", method: :post, local: true do |f| %>
@@ -46,8 +48,14 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  
+  </br>
   <div class="actions">
-    <%= f.submit "proceed" %>
+    <%= f.submit "Sign Up" %>
   </div>
 <% end %>
+
+</br>
+
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+

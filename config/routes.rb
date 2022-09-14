@@ -20,14 +20,9 @@ Rails.application.routes.draw do
   post 'trader_dashboard/create' => 'trader_dashboard#create', :as => 'create_transaction'
   delete 'trader_dashboard/delete_stocks' , :as => 'delete_stocks'
 
-  # devise_for :admins
-  # devise_for :users
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: 'users/registrations'  }
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: 'admins/registrations'  }
 
   root 'home#index'
-
-  # devise_for :users, :controllers => { users: 'registrations/registrations' }
-
 
 end

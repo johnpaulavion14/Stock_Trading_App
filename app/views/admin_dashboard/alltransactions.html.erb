@@ -1,7 +1,5 @@
 <%= render 'admin_navbar'%>
 </br>
-<h1>All Trasactions</h1>
-
 <table class="table">
   <thead>
     <tr>
@@ -15,19 +13,25 @@
   </thead>
   <tbody>
   <% @all_transactions.each do |transaction|%>
-    <tr>
-      <td><%= transaction.created_at%></td>
-      <td><%= transaction.company + '-' + transaction.symbol%> </td>
-      <td><%= transaction.shares%></td>
-      <td><%= transaction.current_price%></td>
-      <td><%= transaction.commit%></td>
-      <td><%= transaction.user.email%></td>
-
-      
-
-    </tr>
+    <%if transaction.commit == 'buy'%>
+      <tr class="bg-warning text-dark">
+        <td><%= transaction.created_at%></td>
+        <td><%= transaction.company + '-' + transaction.symbol%> </td>
+        <td><%= transaction.shares%></td>
+        <td><%= transaction.current_price%></td>
+        <td><%= transaction.commit%></td>
+        <td><%= transaction.user.email%></td>
+      </tr>
+      <%else%>
+      <tr class="bg-info text-dark">
+        <td><%= transaction.created_at%></td>
+        <td><%= transaction.company + '-' + transaction.symbol%> </td>
+        <td><%= transaction.shares%></td>
+        <td><%= transaction.current_price%></td>
+        <td><%= transaction.commit%></td>
+        <td><%= transaction.user.email%></td>
+      </tr>
+    <%end%>
   <%end%>
   </tbody>
 </table>
-
-<%= button_to "go back", admin_dashboard_index_path, method: :get%>
