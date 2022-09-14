@@ -1,20 +1,17 @@
 <%= render 'navbar' %>
 </br>
-<%= params[:button] + ' ' + 'transaction' %>
+<h3 style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
 
 <%= form_with url: "/trader_dashboard/create" do |f| %>
-
 
   <%= f.hidden_field :company, value: @stocks.name %>
   <%= f.hidden_field :symbol, value: @stocks.symbol %>
   <%= f.hidden_field :current_price, value: @stocks.price %>
 
-
-
-  <h1>
+  <b>
     <%= @stocks.name + ' - ' + @stocks.symbol%><br />
-  </h1>
-  
+  </b>
+  </br>
   <p>
     <%= 'Price: ' + @stocks.price.to_s%><br />
   </p>
@@ -24,23 +21,19 @@
 
   <% if params[:button] == 'buy'%>
     <p>
-      <%= f.label 'No. of Stocks'%></br>
-      <%= f.number_field :shares , min: 1%>
+      <%= f.number_field :shares , min: 1, placeholder: "no. of stocks"%>
     </p>
     <% else %>
     <p>
-      <%= f.label 'No. of Stocks'%></br>
-      <%= f.number_field :shares, min: 1, max: @max%>
+      <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= "+@max.to_s + " stocks"%>
     </p>
 
   <%end%>
   
-  
-  
-
   <p>
     <%= f.submit params[:button] %>
   </p>
   
 <% end %>
+<%= button_to "go back", trader_dashboard_portfolio_path, method: :get%>
 

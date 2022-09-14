@@ -1,25 +1,21 @@
 <%= render 'navbar' %>
-Portfolio
-
 </br>
 </br>
-<%= @shares_array %>
 
-<% @company_details.each do |company|%>
-    <%if company[:shares] != 0%>
-            <%= company[:name]%> </br>
-            <%= 'last_price:' + company[:last_price].to_s %> </br>
-            <%= 'current_price:' + company[:current_price].to_s %> </br>
-            <%= 'shares:' + company[:shares].to_s%> </br>
-            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}) %></br>
-            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}) %></br></br>
-
-    <%end%>
-
-
-<%end%>
-
-
+<div class="d-flex w-100 flex-wrap">
+  <% @company_details.each do |company|%>
+    <div class="w-25" style="height:150px">
+      <%if company[:shares] != 0%>
+        <b><%= company[:name]%> </br></b>
+        <%= 'last_price:' + company[:last_price].to_s %> </br>
+        <%= 'current_price:' + company[:current_price].to_s %> </br>
+        <%= 'shares:' + company[:shares].to_s%> </br>
+        <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}) %> --
+        <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}) %>
+      <%end%>
+    </div>
+  <% end %>
+</div>
 
 
 
