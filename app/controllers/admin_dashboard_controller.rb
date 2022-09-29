@@ -10,6 +10,7 @@ class AdminDashboardController < ApplicationController
   end
 
   def view_profile
+    # debugger
     @view_profile = User.find_by(email:params[:email])
     
   end

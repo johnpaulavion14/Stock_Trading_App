@@ -18,5 +18,15 @@ module TradingApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.test_framework(
+        :rspec,
+        fixture: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+      )
+      # g.factory_bot false
+    end
   end
 end
