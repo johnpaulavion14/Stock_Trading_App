@@ -1,7 +1,7 @@
 <%= render 'navbar' %>
 
 <h1>Top 10 Companies</h1>
-<%= button_to "update Stock",update_stocks_path ,method: :patch%>
+<%= button_to "update Stock",delete_stocks_path ,method: :delete%>
 </br></br>
 <div class="d-flex w-100 flex-wrap">
   <% @stocks.each do |stock| %>
