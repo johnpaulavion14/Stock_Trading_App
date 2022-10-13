@@ -86,7 +86,6 @@ class TraderDashboardController < ApplicationController
 
 end
 
-def update_stocks
 
 
 

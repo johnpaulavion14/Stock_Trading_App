@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'admin_dashboard/index'
   get 'admin_dashboard/alltraders'
-  get 'admin_dashboard/pendingtraders'
   get 'admin_dashboard/alltransactions'
   get 'admin_dashboard/view_profile' , :as => 'view_profile'
   get 'admin_dashboard/view_portfolio' , :as => 'view_portfolio'
