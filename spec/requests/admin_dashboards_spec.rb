@@ -13,7 +13,7 @@ RSpec.describe "AdminDashboards", type: :request do
       get admin_dashboard_alltransactions_path
       expect(response).to have_http_status(200)
     end   
-    it "go to admin all transactions page" do
+    it "go to create new trader page" do
       get new_trader_path
       expect(response).to have_http_status(200)
     end
