@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    @url  = 'http://localhost:3000'
+    @url  = 'https://jp-stock.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Welcome to Stock Trading App')
   end
 end
