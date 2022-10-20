@@ -8,7 +8,7 @@
     <div class="w-25" style="height:100px">
         <b><%= stock.symbol %> - <%= stock.name %></b></br>
         
-        <span><%= stock.price%></span> 
+        <span>&#8369;<%= sprintf('%.2f',stock.price) %></span> 
         <%if stock.percent_change.to_f < 0%>
           <span class="text-danger">(<%= stock.percent_change%>)</span></br>
         <%else%>
@@ -21,4 +21,3 @@
 </div>
 
 </br>
-

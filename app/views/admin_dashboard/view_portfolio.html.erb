@@ -8,8 +8,8 @@
     <div class="w-25" style="height:150px">
       <%if company[:shares] != 0%>
             <b><%= company[:name]%></b> </br>
-            <%= 'last_price:' + company[:last_price].to_s %> </br>
-            <%= 'current_price:' + company[:current_price].to_s %> </br>
+            <span>last_price: &#8369;<%= sprintf('%.2f',company[:last_price]).to_s %></span> </br>
+            <span>current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></span> </br>
             <span class="text-primary"><%= 'shares:' + company[:shares].to_s%></span></br></br>
       <%end%>
     </div>
@@ -17,3 +17,4 @@
 </div>
 
 <%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+
