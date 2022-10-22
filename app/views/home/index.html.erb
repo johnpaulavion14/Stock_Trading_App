@@ -5,9 +5,13 @@
   <div class="alert alert-danger">
     <%= alert %>
   </div>
-<% elsif params[:notice]  %>
-  <div class="alert alert-danger">
-    <%= params[:notice] %>
+<% elsif params[:user_notice]  %>
+  <div class="alert alert-info">
+    <%= params[:user_notice] %>
+  </div>
+<% elsif params[:admin_notice]  %>
+  <div class="alert alert-success">
+    <%= params[:admin_notice] %>
   </div>
 <% end %>
 

@@ -90,4 +90,5 @@ class AdminDashboardController < ApplicationController
   def trader_params
     params.permit(:first_name,:last_name,:gender,:age,:address,:email,:password)
   end
+
 end
