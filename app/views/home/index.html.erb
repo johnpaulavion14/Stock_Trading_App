@@ -1,5 +1,12 @@
 <div class="container text-center mt-5 text-bg-primary" style="padding: 3rem; border-radius:10px">
 <h1 style="text-decoration:underline;text-decoration-thickness: 5px;">StocK-InfinI-TradE</h1>
+
+<% if params[:login] == "not_approved"  %>
+  <div class="alert alert-danger">
+    <%= alert %>
+  </div>
+<% end %>
+
   <div class="row mt-5">
 
     <div class="col">

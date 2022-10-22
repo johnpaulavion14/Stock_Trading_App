@@ -78,13 +78,14 @@ class TraderDashboardController < ApplicationController
 
 
   def is_approved
-    if current_user.is_approved == false
-      sign_out current_user 
-      redirect_to '/'
-    end
+      if current_user.is_approved == false
+        sign_out current_user 
+        redirect_to root_path({login: "not_approved"}), alert: "Need Admin Approval to Login" 
+      end
   end
 
 end
+
 
 
 
