@@ -15,7 +15,7 @@
   <% @all_transactions.each do |transaction|%>
     <%if transaction.commit == 'buy'%>
       <tr class="bg-warning text-dark">
-        <td><%= transaction.created_at%></td>
+        <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
         <td><%= transaction.company + '-' + transaction.symbol%> </td>
         <td><%= transaction.shares%></td>
         <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
@@ -24,7 +24,7 @@
       </tr>
       <%else%>
       <tr class="bg-info text-dark">
-        <td><%= transaction.created_at%></td>
+        <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
         <td><%= transaction.company + '-' + transaction.symbol%> </td>
         <td><%= transaction.shares%></td>
         <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
