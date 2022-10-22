@@ -5,6 +5,10 @@
   <div class="alert alert-danger">
     <%= alert %>
   </div>
+<% elsif params[:notice]  %>
+  <div class="alert alert-danger">
+    <%= params[:notice] %>
+  </div>
 <% end %>
 
   <div class="row mt-5">
