@@ -1,61 +1,64 @@
 <%= render 'admin_navbar'%>
 
-<h2>Sign up</h2>
+<div class="bg-secondary w-25 d-flex flex-column justify-content-center mx-auto rounded py-3" style=" --bs-bg-opacity: .15;">
 
-<%= form_with url: "/admin_dashboard/create_trader", method: :post, local: true do |f| %>
+  <h2>Sign up</h2>
 
-  <div class="field">
-    <%= f.label 'First Name' %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+  <%= form_with url: "/admin_dashboard/create_trader", method: :post, local: true do |f| %>
 
-  <div class="field">
-    <%= f.label 'Last Name' %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.label 'First Name' %><br />
+      <%= f.text_field :first_name, autofocus: true ,required: true%>
+    </div>
 
-   <div class="field">
-    <%= f.label 'Gender' %><br />
-    <%= f.text_field :gender, autofocus: true, autocomplete: "gender" %>
-  </div>
+    <div class="field">
+      <%= f.label 'Last Name' %><br />
+      <%= f.text_field :last_name, autofocus: true ,required: true%>
+    </div>
 
-   <div class="field">
-    <%= f.label 'Age' %><br />
-    <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
-  </div>
+    <div class="field">
+      <%= f.label 'Gender' %><br />
+      <%= f.text_field :gender, autofocus: true, autocomplete: "gender" ,required: true%>
+    </div>
 
-   <div class="field">
-    <%= f.label 'Address' %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
+    <div class="field">
+      <%= f.label 'Age' %><br />
+      <%= f.number_field :age, autofocus: true, autocomplete: "age" ,required: true%>
+    </div>
 
-  </br>
+    <div class="field">
+      <%= f.label 'Address' %><br />
+      <%= f.text_field :address, autofocus: true, autocomplete: "address" ,required: true%>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    </br>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  
-  </br>
-  <div class="actions">
-    <%= f.submit "Sign Up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" ,required: true%>
+    </div>
 
-</br>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,required: true%>
+    </div>
+    
+    </br>
 
-<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+    <div class="actions mb-2">
+      <%= f.submit "Sign Up" %>
+    </div>
+    
+  <% end %>
 
+  <%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+
+</div>

@@ -5,7 +5,8 @@
 </br></br>
 <div class="d-flex w-100 flex-wrap">
   <% @stocks.each do |stock| %>
-    <div class="w-25" style="height:100px">
+    <div class="w-25 d-flex justify-content-center" style="height:170px">
+      <div class="w-75 h-75 rounded-3 bg-info pt-3" style="--bs-bg-opacity: .75;">
         <b><%= stock.symbol %> - <%= stock.name %></b></br>
         
         <span>&#8369;<%= sprintf('%.2f',stock.price) %></span> 
@@ -15,7 +16,8 @@
           <span class="text-success">(<%= stock.percent_change%>)</span></br>
         <%end%>
 
-        <button><%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}), style:"text-decoration:none; color:black;"%></button>
+        <button type="button" class="btn btn-primary mt-2" ><%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}), style:"text-decoration:none; color:black;"%></button>
+      </div>
     </div>
   <% end %>
 </div>

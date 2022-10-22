@@ -1,18 +1,24 @@
 <%= render 'admin_navbar'%>
 
-<h2>View Profile</h2></br>
+<div class="mt-3 bg-secondary w-25 d-flex flex-column justify-content-center mx-auto rounded py-5" style=" --bs-bg-opacity: .15;">
 
-<%= 'First Name: ' + @view_profile.first_name%></br></br>
-<%= 'Last Name: ' + @view_profile.last_name%></br></br>
-<%= 'Gender: ' + @view_profile.gender%></br></br>
-<%= 'Age: ' + @view_profile.age.to_s%></br></br>
-<%= 'Address: ' + @view_profile.address%></br></br>
-<%= 'Email: ' + @view_profile.email%></br></br>
+<h2 style = "text-decoration: underline;text-decoration-thickness: 3px;" >View Profile</h2></br>
+  
+  <div class="mt-3"><%= 'First Name: ' + @view_profile.first_name%></div>
+  <div class="mt-3"><%= 'Last Name: ' + @view_profile.last_name%></div>
+  <div class="mt-3"><%= 'Gender: ' + @view_profile.gender%></div>
+  <div class="mt-3"><%= 'Age: ' + @view_profile.age.to_s%></div>
+  <div class="mt-3"><%= 'Address: ' + @view_profile.address%></div>
+  <div class="mt-3"><%= 'Email: ' + @view_profile.email%></div>
 
-<button><%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
+  <div class="my-3 d-flex justify-content-evenly w-75 mx-auto">
+    <button><%= link_to 'Edit Profile', edit_profile_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
+    <button><%= link_to 'Delete User', delete_user_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
+  </div>
 
-<button><%= link_to 'Delete User', delete_user_path({email:@view_profile.email}), style:"text-decoration:none; color:black"%></button>
-</br></br>
-<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+  </br></br>
+  <%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+
+</div>
 
 

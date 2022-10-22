@@ -5,13 +5,15 @@
 </br></br>
 <div class="d-flex w-100 flex-wrap">
   <% @company_details.each do |company|%>
-    <div class="w-25" style="height:150px">
-      <%if company[:shares] != 0%>
-            <b><%= company[:name]%></b> </br>
-            <span>last_price: &#8369;<%= sprintf('%.2f',company[:last_price]).to_s %></span> </br>
-            <span>current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></span> </br>
-            <span class="text-primary"><%= 'shares:' + company[:shares].to_s%></span></br></br>
-      <%end%>
+    <div class="w-25 d-flex justify-content-center" style="height:180px">
+      <div class="w-75 h-75 rounded-3 bg-info pt-3" style="--bs-bg-opacity: .75;">
+        <%if company[:shares] != 0%>
+              <b><%= company[:name]%></b> </br>
+              <div>last_price: &#8369;<%= sprintf('%.2f',company[:last_price]).to_s %></div> 
+              <div class="mb-2">current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></div>
+              <b class="text-primary"><%= 'shares:' + company[:shares].to_s%></b></br></br>
+        <%end%>
+      </div>
     </div>
   <% end %>
 </div>

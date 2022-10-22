@@ -1,39 +1,38 @@
 <%= render 'navbar' %>
 </br>
-<h3 style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
 
-<%= form_with url: "/trader_dashboard/create" do |f| %>
+<div class="bg-secondary w-25 d-flex flex-column justify-content-center mx-auto rounded" style="height:370px; --bs-bg-opacity: .15;">
+  <h3 class="mb-4" style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
 
-  <%= f.hidden_field :company, value: @stocks.name %>
-  <%= f.hidden_field :symbol, value: @stocks.symbol %>
-  <%= f.hidden_field :current_price, value: @stocks.price %>
+  <%= form_with url: "/trader_dashboard/create" do |f| %>
 
-  <b>
-    <%= @stocks.name + ' - ' + @stocks.symbol%><br />
-  </b>
-  </br>
-  <p>
-    <%= 'Price: ' + @stocks.price.to_s%><br />
-  </p>
-  <p>
-    <%= 'Shares: ' + params[:shares].to_s%><br />
-  </p>
+    <%= f.hidden_field :company, value: @stocks.name %>
+    <%= f.hidden_field :symbol, value: @stocks.symbol %>
+    <%= f.hidden_field :current_price, value: @stocks.price %>
 
-  <% if params[:button] == 'buy'%>
+    <b><i><%= @stocks.name + ' - ' + @stocks.symbol%></i></b>
+    <h5 class="mt-2" >
+      <b class="text-warning">Price: &#8369;<%=  @stocks.price.to_s %></b> </br>   
+    </h5>
+    <h5>
+      <b class="text-primary">Shares: <%= params[:shares].to_s %></b> </br>      
+    </h5>
+
+    <% if params[:button] == 'buy'%>
+      <p>
+        <%= f.number_field :shares , min: 1, placeholder: "no. of stocks", size: "7x1"%>
+      </p>
+      <% else %>
+      <p>
+        <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= " + @max.to_s, size: "7x1"%>
+      </p>
+
+    <%end%>
+    
     <p>
-      <%= f.number_field :shares , min: 1, placeholder: "no. of stocks"%>
+      <%= f.submit params[:button] %>
     </p>
-    <% else %>
-    <p>
-      <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= "+@max.to_s + " stocks"%>
-    </p>
-
-  <%end%>
-  
-  <p>
-    <%= f.submit params[:button] %>
-  </p>
-  
-<% end %>
-<%= button_to "go back", trader_dashboard_portfolio_path, method: :get%>
-
+    
+  <% end %>
+  <%= button_to "go back", trader_dashboard_portfolio_path, method: :get%>
+</div>
