@@ -1,43 +1,45 @@
-<div class="container text-center mt-5 text-bg-primary" style="padding: 3rem; border-radius:10px">
-<h1 style="text-decoration:underline;text-decoration-thickness: 5px;">StocK-InfinI-TradE</h1>
+<div class="home_bg py-5" >
+  <div class="w-50 text-center text-bg-primary p-5 mx-auto rounded-4">
+    <h1 id="title_name">StocK-InfinI-TradE</h1>
 
-<% if params[:login] == "not_approved"  %>
-  <div class="alert alert-danger">
-    <%= alert %>
-  </div>
-<% elsif params[:user_notice]  %>
-  <div class="alert alert-info">
-    <%= params[:user_notice] %>
-  </div>
-<% elsif params[:admin_notice]  %>
-  <div class="alert alert-success">
-    <%= params[:admin_notice] %>
-  </div>
-<% end %>
+    <% if params[:login] == "not_approved"  %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <% elsif params[:user_notice]  %>
+      <div class="alert alert-info">
+        <%= params[:user_notice] %>
+      </div>
+    <% elsif params[:admin_notice]  %>
+      <div class="alert alert-success">
+        <%= params[:admin_notice] %>
+      </div>
+    <% end %>
 
-  <div class="row mt-5">
+      <div class="row">
+        <div class="col">
+        </div>
 
-    <div class="col">
-    </div>
+        <div class="col">
+            <h1 id="trader" class="text-dark">Trader</h1>
+            <%= button_to "Log In", trader_dashboard_index_path, method: :get, class:"btn btn-success"%>
+            </br>
+            <%= button_to "Register", new_user_registration_path, method: :get, class:"btn btn-danger"%>
+        </div>
 
-    <div class="col">
-        <h1>Trader</h1>
-        <%= button_to "Log In", trader_dashboard_index_path, method: :get%>
-        </br>
-        <%= button_to "Register", new_user_registration_path, method: :get%>
-    </div>
-    <div class="col">
-        <h1>Admin</h1>
-        <%= button_to "Log In", admin_dashboard_alltraders_path, method: :get%>
-        </br>
-        <%= button_to "Register", new_admin_registration_path, method: :get%>
-    </div>
+        <div class="col">
+            <h1 id="admin" class="text-dark">Admin</h1>
+            <%= button_to "Log In", admin_dashboard_alltraders_path, method: :get, class:"btn btn-success"%>
+            </br>
+            <%= button_to "Register", new_admin_registration_path, method: :get, class:"btn btn-danger"%>
+        </div>
 
-    <div class="col">
-    </div>
-
+        <div class="col">
+        </div>
+      </div>
   </div>
 </div>
+
 
 
 

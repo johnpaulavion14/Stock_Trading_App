@@ -17,13 +17,13 @@
       <th scope="row"><%= index+1%></th>
       <td style="text-transform:capitalize"><%= trader.first_name%></td>
       <td><%= trader.email%></td>
-      <td><button><%= link_to 'View Profile', view_profile_path({email:trader.email}),style:"text-decoration:none; color:black"%></button></td>
-      <td><button><%= link_to 'View Portfolio',  view_portfolio_path({email:trader.email}),style:"text-decoration:none; color:black"%></button></td>
+      <td><%= link_to 'View Profile', view_profile_path({email:trader.email}),style:"text-decoration:none;", class:"btn btn-primary" %></td>
+      <td><%= link_to 'View Portfolio',  view_portfolio_path({email:trader.email}),style:"text-decoration:none;", class:"btn btn-primary" %></td>
       
       <% if trader.is_approved == false %>
-        <td><button><%=link_to 'Approve?',approved_path({email:trader.email}),style:"text-decoration:none; color:red" %></button></td>
+        <td><%=link_to 'Approve?',approved_path({email:trader.email}),style:"text-decoration:none;", class:"btn btn-danger" %></td>
       <%else%>
-        <td style="color:green">Approved</td>
+        <td id="approved" class="fs-4 text-success">Approved</td>
       <%end%>
       
     </tr>
@@ -31,6 +31,6 @@
   </tbody>
 </table>
 </br></br>
-<button><%= link_to "Create New Trader", new_trader_path, style:"text-decoration:none; color:black"%></button>
+<%= link_to "Create New Trader", new_trader_path, style:"text-decoration:none;" ,class:"btn btn-success text-white fs-4", id:"create_new_trader"%>
 
 

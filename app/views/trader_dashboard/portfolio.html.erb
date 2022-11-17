@@ -11,8 +11,8 @@
             <span>current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></span> </br>
           <b class="text-primary"><%= 'shares:  ' + company[:shares].to_s%></b> </br>
           <div class="mt-2 d-flex justify-content-evenly w-50 mx-auto">
-            <button><%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}), style:"text-decoration:none; color:black;" %></button>
-            <button><%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}), style:"text-decoration:none; color:black;" %></button>
+            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-success text-white"%>
+            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-danger text-white" %>
           </div>
         <%end%>
       </div>

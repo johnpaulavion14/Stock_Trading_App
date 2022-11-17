@@ -1,8 +1,8 @@
 <%= render 'admin_navbar'%>
 
-<h2>Portfolio</h2>
-<%= 'email: ' + params[:email]%>
-</br></br>
+<h2 id="view_portfolio">Portfolio</h2>
+<p id="email" class="fs-5"><%= 'email: ' + params[:email] %></p>
+</br>
 <div class="d-flex w-100 flex-wrap">
   <% @company_details.each do |company|%>
     <div class="w-25 d-flex justify-content-center" style="height:180px">
@@ -18,5 +18,5 @@
   <% end %>
 </div>
 
-<%= button_to "go back", admin_dashboard_alltraders_path, method: :get%>
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get, class:"btn btn-danger"%>
 

@@ -1,7 +1,7 @@
 <%= render 'navbar' %>
 
-<h1>Top 10 Companies</h1>
-<%= button_to "update Stock",update_stocks_path ,method: :patch%>
+<h1 id="top_companies">Top 10 Companies</h1>
+<%= button_to "Update Stock",update_stocks_path ,method: :patch, class:"btn btn-success fs-5", id:"update_stock"%>
 </br></br>
 <div class="d-flex w-100 flex-wrap">
   <% @stocks.each do |stock| %>
@@ -16,7 +16,7 @@
           <span class="text-success">(<%= stock.percent_change%>)</span></br>
         <%end%>
 
-        <button type="button" class="btn btn-primary mt-2" ><%= link_to "buy", transaction_type_path({company:stock.name, button:'buy'}), style:"text-decoration:none; color:black;"%></button>
+        <%= link_to "buy", transaction_type_path({company:stock.name, button:'buy', from:"dashboard"}), style:"text-decoration:none; color:black;", class:"btn btn-success text-white mt-2"%>
       </div>
     </div>
   <% end %>

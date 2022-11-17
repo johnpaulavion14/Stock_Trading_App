@@ -1,8 +1,8 @@
 <%= render 'navbar' %>
 </br>
 
-<div class="bg-secondary w-25 d-flex flex-column justify-content-center mx-auto rounded" style="height:370px; --bs-bg-opacity: .15;">
-  <h3 class="mb-4" style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
+<div class="bg-info w-25 d-flex flex-column justify-content-center mx-auto rounded" style="height:370px; --bs-bg-opacity: .75;">
+  <h3 class="mb-4" id="transaction_name" style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
 
   <%= form_with url: "/trader_dashboard/create" do |f| %>
 
@@ -12,27 +12,35 @@
 
     <b><i><%= @stocks.name + ' - ' + @stocks.symbol%></i></b>
     <h5 class="mt-2" >
-      <b class="text-warning">Price: &#8369;<%=  @stocks.price.to_s %></b> </br>   
+      <b>Price: &#8369;<%=  @stocks.price.to_s %></b> </br>   
     </h5>
     <h5>
-      <b class="text-primary">Shares: <%= params[:shares].to_s %></b> </br>      
+      <% if params[:shares] %>
+        <b>Shares: <%= params[:shares].to_s %></b> </br>      
+      <% else %>
+        <b>Shares: 0</b> </br>      
+      <% end %>
     </h5>
 
     <% if params[:button] == 'buy'%>
       <p>
-        <%= f.number_field :shares , min: 1, placeholder: "no. of stocks", size: "7x1"%>
+        <%= f.number_field :shares , min: 1, placeholder: "no. of stocks", size: "7x1", class:"text-center"%>
       </p>
       <% else %>
       <p>
-        <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= " + @max.to_s, size: "7x1"%>
+        <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= " + @max.to_s, size: "7x1", class:"text-center"%>
       </p>
 
     <%end%>
     
     <p>
-      <%= f.submit params[:button] %>
+      <%= f.submit params[:button], class:"btn btn-success" %>
     </p>
     
   <% end %>
-  <%= button_to "go back", trader_dashboard_portfolio_path, method: :get%>
+  <% if params[:from] == "dashboard" %>
+    <%= button_to "go back", trader_dashboard_index_path, method: :get, class:"btn btn-danger"%>
+  <% else %>
+    <%= button_to "go back", trader_dashboard_portfolio_path, method: :get, class:"btn btn-danger"%>
+  <% end %>
 </div>
