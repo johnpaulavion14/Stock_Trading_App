@@ -1,6 +1,5 @@
 <%= render 'navbar' %>
 </br>
-
 <div class="bg-info w-25 d-flex flex-column justify-content-center mx-auto rounded" style="height:370px; --bs-bg-opacity: .75;">
   <h3 class="mb-4" id="transaction_name" style="text-transform: capitalize; text-decoration: underline;"><%= params[:button] + ' ' + 'transaction' %></h3>
 
@@ -12,7 +11,7 @@
 
     <b><i><%= @stocks.name + ' - ' + @stocks.symbol%></i></b>
     <h5 class="mt-2" >
-      <b>Price: &#8369;<%=  @stocks.price.to_s %></b> </br>   
+      <b>Price: &#8369;<%=  @stocks.price.to_s %></b> 
     </h5>
     <h5>
       <% if params[:shares] %>
@@ -21,7 +20,6 @@
         <b>Shares: 0</b> </br>      
       <% end %>
     </h5>
-
     <% if params[:button] == 'buy'%>
       <p>
         <%= f.number_field :shares , min: 1, placeholder: "no. of stocks", size: "7x1", class:"text-center"%>
@@ -30,17 +28,15 @@
       <p>
         <%= f.number_field :shares, min: 1, max: @max,placeholder: "enter <= " + @max.to_s, size: "7x1", class:"text-center"%>
       </p>
-
     <%end%>
-    
     <p>
-      <%= f.submit params[:button], class:"btn btn-success" %>
+      <%= f.submit params[:button], class:"btn btn-success", id:"buy"%>
     </p>
-    
   <% end %>
+
   <% if params[:from] == "dashboard" %>
-    <%= button_to "go back", trader_dashboard_index_path, method: :get, class:"btn btn-danger"%>
+    <%= button_to "back", trader_dashboard_index_path, method: :get, class:"btn btn-danger", id:"back" %>
   <% else %>
-    <%= button_to "go back", trader_dashboard_portfolio_path, method: :get, class:"btn btn-danger"%>
+    <%= button_to "back", trader_dashboard_portfolio_path, method: :get, class:"btn btn-danger" , id:"back"%>
   <% end %>
 </div>

@@ -11,9 +11,9 @@
     </tr>
   </thead>
   <tbody>
-  <% @all_transactions.each do |transaction|%>
+    <% @all_transactions.each do |transaction|%>
       <%if transaction.commit == 'buy'%>
-        <tr class="bg-warning text-dark">
+        <tr class="bg-success text-dark">
           <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
           <td><%= transaction.company + '-' + transaction.symbol%> </td>
           <td><%= transaction.shares%></td>
@@ -21,7 +21,7 @@
           <td><%= transaction.commit%></td>
         </tr>
       <%else%>
-        <tr class="bg-info text-dark">
+        <tr class="bg-danger text-dark">
           <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
           <td><%= transaction.company + '-' + transaction.symbol%> </td>
           <td><%= transaction.shares%></td>

@@ -25,7 +25,7 @@
    text-decoration:underline;
    text-decoration-thickness: 5px;
  } 
- #sign_up, #login, #trader, #admin, #nav_bar, #update_stock, #create_new_trader,#approved, #email{
+ #sign_up, #login, #trader, #admin, #nav_bar, #update_stock, #create_new_trader,#approved, #email, #buy, #sell, #back,#trader_name, #edit_profile, #delete_user{
    font-family: 'Londrina Solid';
  }
  #top_companies, #transaction_name, #view_profile, #edit_profile, #create_new_user, #view_portfolio{

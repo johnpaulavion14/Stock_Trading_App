@@ -1,31 +1,23 @@
 <%= render 'admin_navbar'%>
-
 <div class="bg-info w-25 d-flex flex-column justify-content-center mx-auto rounded py-3" style=" --bs-bg-opacity: .75;">
-
   <h2 id="create_new_user">Sign up</h2>
-
   <%= form_with url: "/admin_dashboard/create_trader", method: :post, local: true do |f| %>
-
     <div class="field">
       <%= f.label 'First Name' %><br />
       <%= f.text_field :first_name, autofocus: true ,required: true ,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label 'Last Name' %><br />
       <%= f.text_field :last_name, autofocus: true ,required: true,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label 'Gender' %><br />
       <%= f.text_field :gender, autofocus: true, autocomplete: "gender" ,required: true,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label 'Age' %><br />
       <%= f.number_field :age, autofocus: true, autocomplete: "age" ,required: true,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label 'Address' %><br />
       <%= f.text_field :address, autofocus: true, autocomplete: "address" ,required: true,class:"text-center"%>
@@ -34,28 +26,21 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" ,required: true,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password" ,required: true,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" ,required: true,class:"text-center"%>
     </div>
-    
-    </br>
-
-    <div class="actions mb-2">
-      <%= f.submit "Sign Up", class:"btn btn-success" %>
-    </div>
-    
-  <% end %>
-
-  <%= button_to "go back", admin_dashboard_alltraders_path, method: :get, class:"btn btn-danger"%>
-
+  </br>
+  <div class="actions mb-2">
+    <%= f.submit "Sign Up", class:"btn btn-success" %>
+  </div>
+<% end %>
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get, class:"btn btn-danger"%>
 </div>

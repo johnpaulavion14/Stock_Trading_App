@@ -1,49 +1,36 @@
 <%= render 'admin_navbar'%>
-
 <div class="mt-3 bg-info w-25 d-flex flex-column justify-content-center mx-auto rounded py-5" style=" --bs-bg-opacity: .75;">
-
   <h2 style = "text-decoration: underline;text-decoration-thickness: 3px;" id="edit_profile">Edit Profile</h2>
-
   <%= form_with url: "/admin_dashboard/update",method: :patch, local: true do |f| %>
-
     <div class="field">
       <%= f.label 'First Name:' %></br>
       <%= f.text_field :first_name, value: @profile.first_name ,class:"text-center"%>
     </div>
-
     <div class="field">
       <%= f.label 'Last Name:' %></br>
       <%= f.text_field :last_name, value: @profile.last_name, class:"text-center" %>
     </div>
-
     <div class="field">
       <%= f.label 'Gender:' %></br>
       <%= f.text_field :gender, value: @profile.gender, class:"text-center" %>
     </div>
-
     <div class="field">
       <%= f.label 'Age:' %></br>
       <%= f.number_field :age, value: @profile.age, class:"text-center" %>
     </div>
-
     <div class="field">
       <%= f.label 'Address:' %></br>
       <%= f.text_field :address, value: @profile.address, class:"text-center" %>
     </div>
-
     <div class="field">
       <%= f.label 'Email:' %></br>
       <%= f.text_field :email, value: @profile.email, class:"text-center" %>
     </div>
-
     <div class="my-3">
       <%= f.submit "Save", class:"btn btn-success"%>
     </div>
-
-    <%end%>
-
+  <%end%>
     <div>
-    <%= link_to 'go back', view_profile_path({email:params[:email]}), style:"text-decoration:none;", class:"btn btn-danger" %>
+      <%= link_to 'go back', view_profile_path({email:params[:email]}), style:"text-decoration:none;", class:"btn btn-danger" %>
     </div>
-
-  </div>
+</div>

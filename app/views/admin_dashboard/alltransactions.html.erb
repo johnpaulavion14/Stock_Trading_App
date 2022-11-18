@@ -12,26 +12,26 @@
     </tr>
   </thead>
   <tbody>
-  <% @all_transactions.each do |transaction|%>
-    <%if transaction.commit == 'buy'%>
-      <tr class="bg-warning text-dark">
-        <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
-        <td><%= transaction.company + '-' + transaction.symbol%> </td>
-        <td><%= transaction.shares%></td>
-        <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
-        <td><%= transaction.commit%></td>
-        <td><%= transaction.user.email%></td>
-      </tr>
+    <% @all_transactions.each do |transaction|%>
+      <%if transaction.commit == 'buy'%>
+        <tr class="bg-success text-dark">
+          <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
+          <td><%= transaction.company + '-' + transaction.symbol%> </td>
+          <td><%= transaction.shares%></td>
+          <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
+          <td><%= transaction.commit%></td>
+          <td><%= transaction.user.email%></td>
+        </tr>
       <%else%>
-      <tr class="bg-info text-dark">
-        <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
-        <td><%= transaction.company + '-' + transaction.symbol%> </td>
-        <td><%= transaction.shares%></td>
-        <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
-        <td><%= transaction.commit%></td>
-        <td><%= transaction.user.email%></td>
-      </tr>
+        <tr class="bg-danger text-dark">
+          <td><%= transaction.created_at.strftime("%I:%M:%S %p/%b %d,%Y")%></td>
+          <td><%= transaction.company + '-' + transaction.symbol%> </td>
+          <td><%= transaction.shares%></td>
+          <td>&#8369;<%= sprintf('%.2f',transaction.current_price) %></td>
+          <td><%= transaction.commit%></td>
+          <td><%= transaction.user.email%></td>
+        </tr>
+      <%end%>
     <%end%>
-  <%end%>
   </tbody>
 </table>

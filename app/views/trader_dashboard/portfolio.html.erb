@@ -1,6 +1,5 @@
 <%= render 'navbar' %>
 </br>
-
 <div class="d-flex w-100 flex-wrap">
   <% @company_details.each do |company|%>
     <div class="w-25 d-flex justify-content-center" style="height:230px">
@@ -11,8 +10,8 @@
             <span>current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></span> </br>
           <b class="text-primary"><%= 'shares:  ' + company[:shares].to_s%></b> </br>
           <div class="mt-2 d-flex justify-content-evenly w-50 mx-auto">
-            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-success text-white"%>
-            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-danger text-white" %>
+            <%= link_to "Buy", transaction_type_path({company:company[:name], button:'buy',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-success text-white", id:"buy" %>
+            <%= link_to "Sell", transaction_type_path({company:company[:name], button:'sell',shares:company[:shares]}), style:"text-decoration:none; color:black;", class:"btn btn-danger text-white", id:"sell" %>
           </div>
         <%end%>
       </div>

@@ -1,5 +1,4 @@
 <%= render 'navbar' %>
-
 <h1 id="top_companies">Top 10 Companies</h1>
 <%= button_to "Update Stock",update_stocks_path ,method: :patch, class:"btn btn-success fs-5", id:"update_stock"%>
 </br></br>
@@ -8,18 +7,15 @@
     <div class="w-25 d-flex justify-content-center" style="height:170px">
       <div class="w-75 h-75 rounded-3 bg-info pt-3" style="--bs-bg-opacity: .75;">
         <b><%= stock.symbol %> - <%= stock.name %></b></br>
-        
-        <span>&#8369;<%= sprintf('%.2f',stock.price) %></span> 
-        <%if stock.percent_change.to_f < 0%>
+        <span>&#8369;<%= sprintf('%.2f',stock.price) %></span>
+        <% if stock.percent_change.to_f < 0 %>
           <span class="text-danger">(<%= stock.percent_change%>)</span></br>
-        <%else%>
+        <% else %>
           <span class="text-success">(<%= stock.percent_change%>)</span></br>
         <%end%>
-
-        <%= link_to "buy", transaction_type_path({company:stock.name, button:'buy', from:"dashboard"}), style:"text-decoration:none; color:black;", class:"btn btn-success text-white mt-2"%>
+        <%= link_to "buy", transaction_type_path({company:stock.name, button:'buy', from:"dashboard"}), style:"text-decoration:none;", class:"btn btn-success text-white mt-2", id:"buy"%>
       </div>
     </div>
   <% end %>
 </div>
-
 </br>

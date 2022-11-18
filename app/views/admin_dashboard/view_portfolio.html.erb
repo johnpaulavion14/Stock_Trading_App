@@ -1,5 +1,4 @@
 <%= render 'admin_navbar'%>
-
 <h2 id="view_portfolio">Portfolio</h2>
 <p id="email" class="fs-5"><%= 'email: ' + params[:email] %></p>
 </br>
@@ -8,15 +7,13 @@
     <div class="w-25 d-flex justify-content-center" style="height:180px">
       <div class="w-75 h-75 rounded-3 bg-info pt-3" style="--bs-bg-opacity: .75;">
         <%if company[:shares] != 0%>
-              <b><%= company[:name]%></b> </br>
-              <div>last_price: &#8369;<%= sprintf('%.2f',company[:last_price]).to_s %></div> 
-              <div class="mb-2">current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></div>
-              <b class="text-primary"><%= 'shares:' + company[:shares].to_s%></b></br></br>
+          <b><%= company[:name]%></b> </br>
+          <div>last_price: &#8369;<%= sprintf('%.2f',company[:last_price]).to_s %></div>
+          <div class="mb-2">current_price: &#8369;<%= sprintf('%.2f',company[:current_price]).to_s %></div>
+          <b class="text-primary"><%= 'shares:' + company[:shares].to_s%></b></br></br>
         <%end%>
       </div>
     </div>
   <% end %>
 </div>
-
-<%= button_to "go back", admin_dashboard_alltraders_path, method: :get, class:"btn btn-danger"%>
-
+<%= button_to "go back", admin_dashboard_alltraders_path, method: :get, class:"btn btn-danger", id:"back" %>
